@@ -1,0 +1,46 @@
+@ReceptSystemAPI_HostAddress = http://localhost:5027
+
+###
+GET {{ReceptSystemAPI_HostAddress}}/api/ReceptSystem/laegehuse
+Accept: application/json
+
+###
+
+GET {{ReceptSystemAPI_HostAddress}}/api/ReceptSystem/laegehuse/1d363351-f1ab-4888-ac15-4a2a587f270c
+Accept: application/json
+
+###
+GET {{ReceptSystemAPI_HostAddress}}/api/ReceptSystem/apoteker
+Accept: application/json
+
+###
+GET {{ReceptSystemAPI_HostAddress}}//api/ReceptSystem/apoteker/8fe6d63f-8e77-4540-b0ec-123d018d2af9
+Accept: application/json
+
+###
+GET {{ReceptSystemAPI_HostAddress}}/api/ReceptSystem/recepter
+Accept: application/json
+
+###
+GET {{ReceptSystemAPI_HostAddress}}//api/ReceptSystem/recepter/583fc6a4-3ecd-4d33-6f75-08de365126cd
+Accept: application/json
+
+###
+GET {{ReceptSystemAPI_HostAddress}}/api/ReceptSystem/ordinationer
+Accept: application/json
+
+###
+GET {{ReceptSystemAPI_HostAddress}}/api/ReceptSystem/ordinationer/71a6affe-cb67-411c-9c5b-1e91dee4906f
+Accept: application/json
+
+###
+GET {{ReceptSystemAPI_HostAddress}}/api/ReceptSystem/receptUdleveringer
+Accept: application/json
+
+###
+GET {{ReceptSystemAPI_HostAddress}}/api/Apoteks/recepter/2010035647
+Accept: application/json
+
+###
+POST {{ReceptSystemAPI_HostAddress}}/api/Apoteks/recepter/078f9e99-3bf9-4302-855f-08de370365f9/ordinationer/34af104f-1305-48c4-b78c-3fa2a0aaeff8/apotek/ec42f84b-7d47-4d06-9031-d0e56c285887
+Accept: application/json

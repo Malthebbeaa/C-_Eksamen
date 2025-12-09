@@ -1,0 +1,31 @@
+@using DTO
+
+@{
+    ViewBag.Title = "Apoteker";
+    Layout = "_Layout";
+}
+
+<h2>Vælg Apotek</h2>
+
+<table style="border-collapse:collapse; margin-top:10px;">
+    <tr>
+        <th style="padding:8px; border:1px solid #ddd;">Navn</th>
+        <th style="padding:8px; border:1px solid #ddd;"></th>
+    </tr>
+
+    @foreach (ApotekDTO apotek in ViewBag.Apoteker)
+    {
+        <tr>
+            <td style="padding:8px; border:1px solid #ddd;">
+                @apotek.Navn
+            </td>
+            <td style="padding:8px; border:1px solid #ddd; text-align:center;">
+                @using (Html.BeginForm("ReceptSearch", "Home", FormMethod.Get))
+                {
+                    @Html.Hidden("apotekId", apotek.ApotekId)
+                    <button type="submit">Vælg</button>
+                }
+            </td>
+        </tr>
+    }
+</table>

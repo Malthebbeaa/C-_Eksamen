@@ -1,0 +1,15 @@
+/Users/malthebrahebjerregaard/Desktop/C#_Eksamen/Eksamen/DAL/bin/Debug/net8.0/DAL.deps.json
+/Users/malthebrahebjerregaard/Desktop/C#_Eksamen/Eksamen/DAL/bin/Debug/net8.0/DAL.dll
+/Users/malthebrahebjerregaard/Desktop/C#_Eksamen/Eksamen/DAL/bin/Debug/net8.0/DAL.pdb
+/Users/malthebrahebjerregaard/Desktop/C#_Eksamen/Eksamen/DAL/obj/Debug/net8.0/DAL.csproj.AssemblyReference.cache
+/Users/malthebrahebjerregaard/Desktop/C#_Eksamen/Eksamen/DAL/obj/Debug/net8.0/DAL.GeneratedMSBuildEditorConfig.editorconfig
+/Users/malthebrahebjerregaard/Desktop/C#_Eksamen/Eksamen/DAL/obj/Debug/net8.0/DAL.AssemblyInfoInputs.cache
+/Users/malthebrahebjerregaard/Desktop/C#_Eksamen/Eksamen/DAL/obj/Debug/net8.0/DAL.AssemblyInfo.cs
+/Users/malthebrahebjerregaard/Desktop/C#_Eksamen/Eksamen/DAL/obj/Debug/net8.0/DAL.csproj.CoreCompileInputs.cache
+/Users/malthebrahebjerregaard/Desktop/C#_Eksamen/Eksamen/DAL/obj/Debug/net8.0/DAL.sourcelink.json
+/Users/malthebrahebjerregaard/Desktop/C#_Eksamen/Eksamen/DAL/obj/Debug/net8.0/DAL.dll
+/Users/malthebrahebjerregaard/Desktop/C#_Eksamen/Eksamen/DAL/obj/Debug/net8.0/refint/DAL.dll
+/Users/malthebrahebjerregaard/Desktop/C#_Eksamen/Eksamen/DAL/obj/Debug/net8.0/DAL.pdb
+/Users/malthebrahebjerregaard/Desktop/C#_Eksamen/Eksamen/DAL/obj/Debug/net8.0/ref/DAL.dll
+/Users/malthebrahebjerregaard/Desktop/C#_Eksamen/Eksamen/DAL/bin/Debug/net8.0/DAL.runtimeconfig.json
+/Users/malthebrahebjerregaard/Desktop/C#_Eksamen/Eksamen/DAL/obj/Debug/net8.0/DAL.genruntimeconfig.cache

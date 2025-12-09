@@ -1,0 +1,16 @@
+/Users/malthebrahebjerregaard/Desktop/C#_Eksamen/Eksamen/DTO/bin/Debug/net8.0/DTO.deps.json
+/Users/malthebrahebjerregaard/Desktop/C#_Eksamen/Eksamen/DTO/bin/Debug/net8.0/DTO.dll
+/Users/malthebrahebjerregaard/Desktop/C#_Eksamen/Eksamen/DTO/bin/Debug/net8.0/DTO.pdb
+/Users/malthebrahebjerregaard/Desktop/C#_Eksamen/Eksamen/DTO/bin/Debug/net8.0/DAL.dll
+/Users/malthebrahebjerregaard/Desktop/C#_Eksamen/Eksamen/DTO/bin/Debug/net8.0/DAL.pdb
+/Users/malthebrahebjerregaard/Desktop/C#_Eksamen/Eksamen/DTO/obj/Debug/net8.0/DTO.csproj.AssemblyReference.cache
+/Users/malthebrahebjerregaard/Desktop/C#_Eksamen/Eksamen/DTO/obj/Debug/net8.0/DTO.GeneratedMSBuildEditorConfig.editorconfig
+/Users/malthebrahebjerregaard/Desktop/C#_Eksamen/Eksamen/DTO/obj/Debug/net8.0/DTO.AssemblyInfoInputs.cache
+/Users/malthebrahebjerregaard/Desktop/C#_Eksamen/Eksamen/DTO/obj/Debug/net8.0/DTO.AssemblyInfo.cs
+/Users/malthebrahebjerregaard/Desktop/C#_Eksamen/Eksamen/DTO/obj/Debug/net8.0/DTO.csproj.CoreCompileInputs.cache
+/Users/malthebrahebjerregaard/Desktop/C#_Eksamen/Eksamen/DTO/obj/Debug/net8.0/DTO.sourcelink.json
+/Users/malthebrahebjerregaard/Desktop/C#_Eksamen/Eksamen/DTO/obj/Debug/net8.0/DTO.csproj.Up2Date
+/Users/malthebrahebjerregaard/Desktop/C#_Eksamen/Eksamen/DTO/obj/Debug/net8.0/DTO.dll
+/Users/malthebrahebjerregaard/Desktop/C#_Eksamen/Eksamen/DTO/obj/Debug/net8.0/refint/DTO.dll
+/Users/malthebrahebjerregaard/Desktop/C#_Eksamen/Eksamen/DTO/obj/Debug/net8.0/DTO.pdb
+/Users/malthebrahebjerregaard/Desktop/C#_Eksamen/Eksamen/DTO/obj/Debug/net8.0/ref/DTO.dll

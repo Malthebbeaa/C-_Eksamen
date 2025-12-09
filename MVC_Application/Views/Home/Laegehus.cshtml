@@ -1,0 +1,13 @@
+@using DTO
+
+@{
+    ViewBag.Title = "Lægehus";
+    Layout = "_Layout";
+}
+
+<h2>Lægehus</h2>
+<p>@ViewBag.Laegehus.Navn - @ViewBag.Laegehus.Ydernummer</p>
+@foreach (ReceptDTO recept in @ViewBag.Laegehus.Recepter)
+{
+    <p>@recept.ReceptId</p>
+}

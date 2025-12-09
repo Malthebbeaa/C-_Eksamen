@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/ReceptSystemAPI.props" />
+</Project>

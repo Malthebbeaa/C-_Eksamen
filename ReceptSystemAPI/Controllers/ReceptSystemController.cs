@@ -33,6 +33,10 @@ public class ReceptSystemController: ControllerBase
     public IActionResult GetLægehus(int ydernummer)
     {
         var lægehus = _lægehusBll.GetLægehus(ydernummer);
+        if (lægehus == null)
+        {
+            return NotFound($"Intet lægehus med dette ydernummer:{ydernummer}");
+        }
         return Ok(lægehus);
     }
     
@@ -47,6 +51,10 @@ public class ReceptSystemController: ControllerBase
     public IActionResult GetApotek(Guid id)
     {
         var apotek = _apotekBll.GetApotek(id);
+        if (apotek == null)
+        {
+            return NotFound($"Intet apotek med dette id:{id}");
+        }
         return Ok(apotek);
     }
     
@@ -61,6 +69,10 @@ public class ReceptSystemController: ControllerBase
     public IActionResult GetRecept(Guid id)
     {
         var recept = _receptBll.GetRecept(id);
+        if (recept == null)
+        {
+            return NotFound($"Ingen recept med dette id:{id}");
+        }
         return Ok(recept);
     }
 
@@ -82,6 +94,10 @@ public class ReceptSystemController: ControllerBase
     public IActionResult GetOrdination(Guid id)
     {
         var ordination = _ordinationBll.GetOrdination(id);
+        if (ordination == null)
+        {
+            return NotFound($"Ingen ordination med dette id:{id}");
+        }
         return Ok(ordination);
     }
     

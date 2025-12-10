@@ -6,12 +6,7 @@ namespace MVC_Application.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
-
-    public HomeController(ILogger<HomeController> logger)
-    {
-        _logger = logger;
-    }
+    public HomeController() { }
 
     [HttpGet]
     public async Task<IActionResult> GetRecepter(string cpr, Guid apotekId)
@@ -37,12 +32,11 @@ public class HomeController : Controller
             Console.WriteLine("Fejl i POST");
         }
 
-        var recepter = await GetRecepterByCpr(cpr);
         var apotek = await GetApotek(apotekId);
         
         ViewBag.Apotek = apotek;
         var cprInput = cpr;
-        //return View("ReceptSearch", recepter);
+        
         return RedirectToAction("GetRecepter", new { cpr = cprInput, apotekId = apotek.ApotekId });
     }
     public IActionResult Index()

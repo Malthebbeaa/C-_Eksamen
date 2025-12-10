@@ -12,7 +12,7 @@ public class OrdinationBLL
         _repository = repository;
     }
 
-    public OrdinationDTO GetOrdination(Guid id)
+    public OrdinationDTO? GetOrdination(Guid id)
     {
         var ordination = _repository.GetOrdination(id);
         if (ordination == null) return null;

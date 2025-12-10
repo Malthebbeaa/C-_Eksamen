@@ -17,7 +17,7 @@ public class ReceptBLL
         _apotekRepository = apotekRepository;
     }
 
-    public ReceptDTO GetRecept(Guid id)
+    public ReceptDTO? GetRecept(Guid id)
     {
         var recept = _repository.GetRecept(id);
         if (recept == null) return null;
@@ -53,9 +53,9 @@ public class ReceptBLL
         
         var apotek = _apotekRepository.GetApotek(apotekNr);
         if (apotek == null) return false;
-        Console.WriteLine("apotek fundet med dette nr: " + apotekNr);
         
         ordinationToUpdate.AntalForetagedeUdleveringer++;
+        
         if (recept.Ordinationer.TrueForAll(o => o.AntalUdleveringer == o.AntalForetagedeUdleveringer))
         {
             recept.Lukket = true;

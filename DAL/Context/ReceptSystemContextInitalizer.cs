@@ -7,7 +7,6 @@ public class ReceptSystemContextInitalizer
 {
     public static void Seed(ReceptSystemContext context)
     {
-
         context.Database.EnsureDeleted();
         context.Database.Migrate();
         if (!context.Lægehuse.Any())
@@ -79,7 +78,5 @@ public class ReceptSystemContextInitalizer
                 );
             context.SaveChanges();
         }
-        
-        
     }
 }

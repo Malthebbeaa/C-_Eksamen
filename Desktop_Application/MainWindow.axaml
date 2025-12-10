@@ -7,7 +7,7 @@
         Title="Desktop_Application">
     <StackPanel 
         HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="10">
-        <TextBlock FontSize="46">Apotek Forside</TextBlock>
+        <TextBlock FontSize="46">Lægehus Forside</TextBlock>
         <StackPanel Orientation="Horizontal" Spacing="10">
             <Label>Lægehus ydernummer:</Label>
             <TextBox 

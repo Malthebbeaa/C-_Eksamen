@@ -5,8 +5,8 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Admin_Desktop_Application.MainWindow"
         Title="Admin_Desktop_Application">
-    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-        <TextBlock>Admin Portal</TextBlock>
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="25">
+        <TextBlock FontSize="46">Admin Portal</TextBlock>
         <StackPanel>
             <Label>Luk alle udløbne recepter</Label>
             <Button x:Name="LukUdløbneBtn" Click="LukUdløbneBtn_OnClick">Luk alle udløbne Recepter</Button>

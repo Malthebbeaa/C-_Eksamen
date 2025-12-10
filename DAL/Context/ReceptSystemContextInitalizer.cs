@@ -1,4 +1,5 @@
 using DAL.Model;
+using Microsoft.EntityFrameworkCore;
 
 namespace DAL.Context;
 
@@ -7,20 +8,15 @@ public class ReceptSystemContextInitalizer
     public static void Seed(ReceptSystemContext context)
     {
 
-        context.Database.EnsureDeleted();
-        context.Database.EnsureCreated();
-        /*
-         * public DbSet<Recept> Recepter {get;set;}
-           public DbSet<Apotek> Apoteker { get; set; }
-           public DbSet<Ordination> Ordinationer { get; set; }
-           public DbSet<ReceptUdlevering> ReceptUdleveringer { get; set; }
-         */
+        //context.Database.EnsureDeleted();
+        context.Database.Migrate();
         if (!context.Lægehuse.Any())
         {
             context.Lægehuse.AddRange(
                 new Lægehus(){Ydernummer = 100001, Navn = "Viby Lægehus"},
                 new Lægehus(){Ydernummer = 100002, Navn = "Aarhus Lægehus"},
-                new Lægehus(){Ydernummer = 100003, Navn = "Højbjerg Lægehus"}
+                new Lægehus(){Ydernummer = 100003, Navn = "Højbjerg Lægehus"},
+                new Lægehus(){Ydernummer = 100004, Navn = "Risskov Lægehus"}
                 );
             
             context.SaveChanges();

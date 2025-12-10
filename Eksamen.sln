@@ -12,6 +12,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MVC_Application", "MVC_Appl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Desktop_Application", "Desktop_Application\Desktop_Application.csproj", "{EA660F14-E226-4F21-984D-5CB33489E602}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Admin_Desktop_Application", "Admin_Desktop_Application\Admin_Desktop_Application.csproj", "{F52EAB27-BE70-4FE5-BFB3-7082D531F09A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,9 @@ Global
 		{EA660F14-E226-4F21-984D-5CB33489E602}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA660F14-E226-4F21-984D-5CB33489E602}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA660F14-E226-4F21-984D-5CB33489E602}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F52EAB27-BE70-4FE5-BFB3-7082D531F09A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F52EAB27-BE70-4FE5-BFB3-7082D531F09A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F52EAB27-BE70-4FE5-BFB3-7082D531F09A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F52EAB27-BE70-4FE5-BFB3-7082D531F09A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

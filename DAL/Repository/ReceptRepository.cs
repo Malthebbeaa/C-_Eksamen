@@ -49,10 +49,27 @@ public class ReceptRepository
         _context.SaveChanges();
         return recept;
     }
-    public bool Update(Recept recept)
+    public bool UpdateRecept(Recept recept)
     {
         _context.Recepter.Update(recept);
         _context.SaveChanges();
         return true;
     }
+
+    public int LukAlleUdløbneRecepter()
+    {
+        var overskridelsesÅr = DateTime.Now.AddDays(-2);
+        var gamleRecepter = _context
+            .Recepter
+            .Where(r => !r.Lukket && r.OprettelsesDato <= overskridelsesÅr)
+            .ToList();
+
+        foreach (var r in gamleRecepter)
+        {
+            r.Lukket = true;
+        }
+        _context.SaveChanges();
+        return gamleRecepter.Count;
+    }
+    
 }

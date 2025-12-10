@@ -71,6 +71,11 @@ public class ReceptBLL
         
         _udleveringRepository.CreateReceptUdlevering(Mapper.Map(receptUdlevering));
         
-        return _repository.Update(recept);
+        return _repository.UpdateRecept(recept);
+    }
+
+    public int LukAlleUdløbneRecepter()
+    {
+        return _repository.LukAlleUdløbneRecepter();
     }
 }

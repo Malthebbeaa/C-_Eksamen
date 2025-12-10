@@ -8,7 +8,7 @@ public class ReceptSystemContextInitalizer
     public static void Seed(ReceptSystemContext context)
     {
 
-        //context.Database.EnsureDeleted();
+        context.Database.EnsureDeleted();
         context.Database.Migrate();
         if (!context.Lægehuse.Any())
         {
@@ -67,7 +67,7 @@ public class ReceptSystemContextInitalizer
                 new Recept()
                 {
                     LægehusYdernummer = allLægehuse[2].Ydernummer,
-                    OprettelsesDato = DateTime.Now.AddDays(1),
+                    OprettelsesDato = DateTime.Now.AddYears(-2).AddDays(-4),
                     Lukket = false,
                     ReceptUdleveringer = new List<ReceptUdlevering>(),
                     PatientCpr = "3005035643",

@@ -24,7 +24,7 @@ public partial class OpretOrdinationWindow : Window
             Lægemiddel = Lægemiddel.Text,
             Dosis = Dosis.Text,
             AntalUdleveringer = int.Parse(AntalUdleveringer.Text),
-            AntalForetagedeUdleveringer = 0
+            AntalForetagneUdleveringer = 0
         };
 
         Tilføjet?.Invoke(this, ordination);

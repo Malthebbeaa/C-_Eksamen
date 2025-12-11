@@ -4,6 +4,7 @@
     ViewData["Title"] = "Home Page";
     var cpr = (string)ViewBag.Cpr;
     var apotekId = (Guid)ViewBag.Apotek.ApotekId;
+    var lukketRecept = (string) ViewBag.LukketReceptMessage;
 }
 
 <div style="text-align:center; margin-top:20px;">
@@ -22,7 +23,13 @@
 
     <h2>Recepter for @ViewBag.Apotek.Navn</h2>
     <h3>Patient CPR: @cpr</h3>
-
+    
+    @if (!string.IsNullOrEmpty(lukketRecept))
+    {
+        <div style="margin:10px auto; width:80%; padding:10px; background-color:#cce5ff; color:#004085; border-radius:6px;">
+            @lukketRecept
+        </div>
+    }
     @if (Model != null && Model.Any())
     {
         @foreach (var recept in Model)

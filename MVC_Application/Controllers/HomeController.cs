@@ -13,6 +13,12 @@ public class HomeController : Controller
     {
         var recepter = await GetRecepterByCpr(cpr);
         var apotek = await GetApotek(apotekId);
+
+        if (TempData.ContainsKey("LukketReceptMessage"))
+        {
+            ViewBag.LukketReceptMessage = TempData["LukketReceptMessage"];
+            TempData.Remove("LukketReceptMessage");
+        }
         
         ViewBag.Apotek = apotek;
         ViewBag.Cpr = cpr;
@@ -32,6 +38,12 @@ public class HomeController : Controller
         {
             Console.WriteLine("Fejl i POST");
         }
+        
+        var updatedRecept = await GetReceptById(receptId);
+        if (updatedRecept != null && updatedRecept.Lukket)
+        {
+            TempData["LukketReceptMessage"] = $"Recept({receptId}) er lukket";
+        } 
 
         var apotek = await GetApotek(apotekId);
         
@@ -40,6 +52,29 @@ public class HomeController : Controller
         
         return RedirectToAction("GetRecepter", new { cpr = cprInput, apotekId = apotek.ApotekId });
     }
+
+    private async Task<ReceptDTO?> GetReceptById(Guid receptId)
+    {
+        HttpClient client = new HttpClient();
+        var response = await client.GetAsync(
+            $"http://localhost:5027/api/ReceptSystems/recepter/{receptId}");
+
+        if (!response.IsSuccessStatusCode)
+        {
+            return null;
+        }
+        
+        string json = await response.Content.ReadAsStringAsync();
+
+        var options = new JsonSerializerOptions
+        {
+            PropertyNameCaseInsensitive = true
+        };
+        
+        var recept = JsonSerializer.Deserialize<ReceptDTO>(json, options);
+        return recept;
+    }
+    
     public async Task<IActionResult> Index()
     {
         var apoteker = new List<ApotekDTO>();

@@ -24,7 +24,11 @@ public class ReceptUdleveringRepository
 
     public List<ReceptUdlevering> GetAllReceptUdleveringer()
     {
-        return _context.ReceptUdleveringer.ToList();
+        return _context
+            .ReceptUdleveringer
+            .Include(ru => ru.Apotek)
+            .Include(ru => ru.Recept)
+            .ToList();
     }
 
     public ReceptUdlevering CreateReceptUdlevering(ReceptUdlevering receptUdlevering)

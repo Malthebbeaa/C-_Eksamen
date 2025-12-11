@@ -1,3 +1,4 @@
+using Admin_Desktop_Application;
 using BLL;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,6 +19,11 @@ public class AdminController: ControllerBase
     public IActionResult LukAlleUdløbenRecepter()
     {
         var antalLukkedeRecepter = _receptBll.LukAlleUdløbneRecepter();
-        return Ok(new { antalLukket = antalLukkedeRecepter });
+        var response = new LukkeResponse()
+        {
+            AntalLukket = antalLukkedeRecepter,
+        };
+        
+        return Ok(response);
     }
 }

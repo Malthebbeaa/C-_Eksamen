@@ -53,11 +53,11 @@ public class ReceptBLL
         var apotek = _apotekRepository.GetApotek(apotekNr);
         if (apotek == null) return false;
         
-        ordinationToUpdate.AntalForetagneUdleveringer++;
+        ordinationToUpdate.ForetagUdlevering();
         
-        if (recept.Ordinationer.TrueForAll(o => o.AntalUdleveringer == o.AntalForetagneUdleveringer))
+        if (recept.KlarTilAtLukke())
         {
-            recept.Lukket = true;
+            recept.Luk();
         }
 
         var receptUdlevering = new ReceptUdleveringDTO()

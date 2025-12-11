@@ -10,7 +10,14 @@ public class Ordination
     public int AntalUdleveringer { get; set; }
     public int AntalForetagneUdleveringer { get; set; }
 
-    public Ordination()
+    public Ordination() { }
+
+    public void ForetagUdlevering()
     {
+        AntalForetagneUdleveringer++;
+        if (AntalForetagneUdleveringer > AntalUdleveringer)
+        { 
+            AntalForetagneUdleveringer =  AntalUdleveringer;
+        }
     }
 }

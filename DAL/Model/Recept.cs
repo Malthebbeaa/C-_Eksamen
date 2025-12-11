@@ -15,4 +15,14 @@ public class Recept
     public List<ReceptUdlevering> ReceptUdleveringer { get; set; } = new List<ReceptUdlevering>();
     
     public Recept(){}
+
+    public bool KlarTilAtLukke()
+    {
+        return Ordinationer.TrueForAll(o => o.AntalForetagneUdleveringer == o.AntalUdleveringer);
+    }
+
+    public void Luk()
+    {
+        Lukket = true;
+    }
 }

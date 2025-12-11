@@ -35,7 +35,7 @@ public partial class MainWindow : Window
         };
         var lukkeResponse = JsonSerializer.Deserialize<LukkeResponse>(json, options);
         
-        AntalLukkede.Text = $"Der blev lukket: {lukkeResponse.AntalLukket} recepter";
+        AntalLukkede.Text = $"Der blev lukket: {lukkeResponse.AntalLukket} recept(er)";
         AntalLukkede.IsVisible = true;
     }
 }

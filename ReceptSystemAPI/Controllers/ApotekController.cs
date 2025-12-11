@@ -8,12 +8,10 @@ namespace ReceptSystemAPI.Controllers;
 public class ApotekController: ControllerBase
 {
     private readonly ReceptBLL _receptBll;
-    private readonly OrdinationBLL _ordinationBll;
 
-    public ApotekController(ReceptBLL receptBll, OrdinationBLL ordinationBll)
+    public ApotekController(ReceptBLL receptBll)
     {
         _receptBll = receptBll;
-        _ordinationBll = ordinationBll;
     }
 
     [HttpGet("recepter/{cpr}")]

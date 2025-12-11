@@ -19,12 +19,16 @@ public class ApotekController: ControllerBase
     [HttpGet("recepter/{cpr}")]
     public IActionResult GetRecepterByCpr(string cpr)
     {
-        if (cpr.Length != 10)
+        var kunTal = cpr.ToList().TrueForAll(char.IsDigit);
+        var korrektLængde = cpr.Length == 10;
+        
+        if (!kunTal && !korrektLængde)
         {
             return BadRequest("Cpr skal være 10 cifre");
         }
         
         var recepter = _receptBll.GetRecepterByCpr(cpr); 
+        
         return Ok(recepter);
     }
 
@@ -32,7 +36,12 @@ public class ApotekController: ControllerBase
     public IActionResult ForetagReceptUdlevering(Guid receptId, Guid id, Guid apotekId)
     {
         var foretaget = _receptBll.ForetagReceptUdlevering(receptId, id, apotekId);
-        if (foretaget == false) return BadRequest("Fejl under receptudlevering");
+        
+        if (!foretaget)
+        {
+            return BadRequest("Fejl under receptudlevering");
+        }
+        
         return Ok("Foretaget udlevering");
     }
 }

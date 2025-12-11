@@ -36,6 +36,16 @@ public partial class ReceptForm : Window
 
     private async void OpretReceptBtn_OnClick(object? sender, RoutedEventArgs e)
     {
+        var date = Cpr.Text.Substring(0, 6);
+        Console.WriteLine(date);
+        var validDate = DateTime.TryParseExact(date, "ddMMyy", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out var dateParsed);
+        Console.WriteLine(dateParsed.ToString());
+        if (!validDate)
+        {
+            CprFejlBesked.Text = "*Ugyldigt Cpr";
+            CprFejlBesked.IsVisible = true;
+            return;
+        }
         var recept = new ReceptDTO()
         {
             ReceptId = Guid.NewGuid(),
@@ -103,6 +113,7 @@ public partial class ReceptForm : Window
         }
         else
         {
+            CprFejlBesked.Text = "*CPR skal være 10 cifre";
             CprFejlBesked.IsVisible = true;
         }
 

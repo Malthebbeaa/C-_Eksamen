@@ -12,7 +12,7 @@ public class ReceptUdleveringBLL
         _repository = repository;
     }
 
-    public ReceptUdleveringDTO GetReceptUdlevering(Guid receptUdleveringId)
+    public ReceptUdleveringDTO? GetReceptUdlevering(Guid receptUdleveringId)
     {
         var receptUdlevering = _repository.GetReceptUdlevering(receptUdleveringId);
         if (receptUdlevering == null) return null;

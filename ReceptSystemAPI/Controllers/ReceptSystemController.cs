@@ -5,7 +5,7 @@ namespace ReceptSystemAPI.Controllers;
 
 [ApiController]
 [Route("api/[controller]s")]
-public class ReceptSystemController: ControllerBase
+public class ReceptSystemController : ControllerBase
 {
     private readonly BLL.LægehusBLL _lægehusBll;
     private readonly BLL.ApotekBLL _apotekBll;
@@ -13,7 +13,8 @@ public class ReceptSystemController: ControllerBase
     private readonly BLL.OrdinationBLL _ordinationBll;
     private readonly BLL.ReceptUdleveringBLL _receptUdleveringBll;
 
-    public ReceptSystemController(BLL.LægehusBLL lægehusBll,  BLL.ApotekBLL apotekBll, BLL.ReceptBLL receptBll,  BLL.OrdinationBLL ordinationBll, BLL.ReceptUdleveringBLL receptUdleveringBll)
+    public ReceptSystemController(BLL.LægehusBLL lægehusBll, BLL.ApotekBLL apotekBll, BLL.ReceptBLL receptBll,
+        BLL.OrdinationBLL ordinationBll, BLL.ReceptUdleveringBLL receptUdleveringBll)
     {
         _lægehusBll = lægehusBll;
         _apotekBll = apotekBll;
@@ -37,9 +38,10 @@ public class ReceptSystemController: ControllerBase
         {
             return NotFound($"Intet lægehus med dette ydernummer:{ydernummer}");
         }
+
         return Ok(lægehus);
     }
-    
+
     [HttpGet("apoteker")]
     public IActionResult GetAllApoteker()
     {
@@ -55,9 +57,10 @@ public class ReceptSystemController: ControllerBase
         {
             return NotFound($"Intet apotek med dette id:{id}");
         }
+
         return Ok(apotek);
     }
-    
+
     [HttpGet("recepter")]
     public IActionResult GetAllRecepter()
     {
@@ -73,16 +76,26 @@ public class ReceptSystemController: ControllerBase
         {
             return NotFound($"Ingen recept med dette id:{id}");
         }
+
         return Ok(recept);
     }
 
     [HttpPost("recepter")]
     public IActionResult CreateRecept([FromBody] ReceptDTO recept)
     {
+        var cpr = recept.PatientCpr;
+        var kunTal = cpr.ToList().TrueForAll(char.IsDigit);
+        var korrektLængde = cpr.Length == 10;
+
+        if (!kunTal && !korrektLængde)
+        {
+            return BadRequest("Forkert format på Cpr");
+        }
+        
         var newRecept = _receptBll.CreateRecept(recept);
         return Ok(newRecept);
     }
-    
+
     [HttpGet("ordinationer")]
     public IActionResult GetAllOrdinationer()
     {
@@ -98,9 +111,10 @@ public class ReceptSystemController: ControllerBase
         {
             return NotFound($"Ingen ordination med dette id:{id}");
         }
+
         return Ok(ordination);
     }
-    
+
     [HttpGet("receptUdleveringer")]
     public IActionResult GetAllReceptUdleveringer()
     {
@@ -112,8 +126,11 @@ public class ReceptSystemController: ControllerBase
     public IActionResult GetReceptUdlevering(Guid id)
     {
         var receptUdlevering = _receptUdleveringBll.GetReceptUdlevering(id);
+        if (receptUdlevering == null)
+        {
+            return NotFound($"Ingen recept med dette id:{id}");
+        }
+        
         return Ok(receptUdlevering);
     }
-    
-    
 }

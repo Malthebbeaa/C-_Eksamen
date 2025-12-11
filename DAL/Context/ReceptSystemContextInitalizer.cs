@@ -69,7 +69,7 @@ public class ReceptSystemContextInitalizer
                     OprettelsesDato = DateTime.Now.AddYears(-2).AddDays(-4),
                     Lukket = false,
                     ReceptUdleveringer = new List<ReceptUdlevering>(),
-                    PatientCpr = "3005035643",
+                    PatientCpr = "2205015643",
                     Ordinationer = new List<Ordination>()
                     {
                         new Ordination(){AntalUdleveringer = 3, OrdinationId = Guid.NewGuid(), AntalForetagneUdleveringer = 0, Lægemiddel = "Pinex",Dosis = "1 tabletter 5 gange dagligt"}

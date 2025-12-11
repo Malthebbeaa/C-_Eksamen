@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Text.Json;
+using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
@@ -37,15 +38,15 @@ public partial class ReceptForm : Window
     private async void OpretReceptBtn_OnClick(object? sender, RoutedEventArgs e)
     {
         var date = Cpr.Text.Substring(0, 6);
-        Console.WriteLine(date);
-        var validDate = DateTime.TryParseExact(date, "ddMMyy", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out var dateParsed);
-        Console.WriteLine(dateParsed.ToString());
+        var validDate = DateTime.TryParseExact(date, "ddMMyy", System.Globalization.CultureInfo.InvariantCulture,
+            System.Globalization.DateTimeStyles.None, out var dateParsed);
         if (!validDate)
         {
             CprFejlBesked.Text = "*Ugyldigt Cpr";
             CprFejlBesked.IsVisible = true;
             return;
         }
+
         var recept = new ReceptDTO()
         {
             ReceptId = Guid.NewGuid(),
@@ -57,6 +58,16 @@ public partial class ReceptForm : Window
             ReceptUdleveringer = new List<ReceptUdleveringDTO>()
         };
 
+        await OpretRecept(recept);
+
+        var mainWindow = new MainWindow();
+        mainWindow.Show();
+        this.Close();
+    }
+
+
+    private async Task OpretRecept(ReceptDTO recept)
+    {
         HttpClient client = new HttpClient();
 
         var json = JsonSerializer.Serialize(recept);
@@ -69,11 +80,8 @@ public partial class ReceptForm : Window
         if (!response.IsSuccessStatusCode)
         {
             Console.WriteLine("Fejl i POST");
+            CprFejlBesked.Text = response.ReasonPhrase;
         }
-
-        var mainWindow = new MainWindow();
-        mainWindow.Show();
-        this.Close();
     }
 
     private void TilføjOrdinationBtn_OnClick(object? sender, RoutedEventArgs e)

@@ -11,9 +11,10 @@ public class HomeController : Controller
     [HttpGet]
     public async Task<IActionResult> GetRecepter(string cpr, Guid apotekId)
     {
-        Console.WriteLine(cpr);
         var recepter = await GetRecepterByCpr(cpr);
-        ViewBag.Apotek = await GetApotek(apotekId);
+        var apotek = await GetApotek(apotekId);
+        
+        ViewBag.Apotek = apotek;
         ViewBag.Cpr = cpr;
         return View("ReceptSearch", recepter);
     }
@@ -39,21 +40,28 @@ public class HomeController : Controller
         
         return RedirectToAction("GetRecepter", new { cpr = cprInput, apotekId = apotek.ApotekId });
     }
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
     {
-        HttpClient client = new HttpClient();
-        Task<string> response = client.GetStringAsync("http://localhost:5027/api/ReceptSystems/apoteker");
+        var apoteker = new List<ApotekDTO>();
         
-        string json = response.Result;
+        HttpClient client = new HttpClient();
+        var response = await client.GetAsync("http://localhost:5027/api/ReceptSystems/apoteker");
+        if (!response.IsSuccessStatusCode)
+        {
+            Console.WriteLine("Fejl i GET");
+            ViewBag.Apoteker = apoteker;
+        }
+        
+        string json = await response.Content.ReadAsStringAsync();
 
         var options = new JsonSerializerOptions()
         {
             PropertyNameCaseInsensitive = true
         };
         
-        var apoteker = JsonSerializer.Deserialize<List<ApotekDTO>>(json, options);
-        ViewBag.Apoteker = apoteker;
-        return View("Index");
+        apoteker = JsonSerializer.Deserialize<List<ApotekDTO>>(json, options);
+        //ViewBag.Apoteker = apoteker;
+        return View("Index",  apoteker);
     }
 
     public async Task<IActionResult> ReceptSearch(Guid apotekId)
